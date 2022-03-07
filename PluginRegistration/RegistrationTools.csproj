@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FC847ABC-8600-4F80-8238-D8DC47F9CB3E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PluginRegistration</RootNamespace>
+    <AssemblyName>PluginRegistration</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\AssemblyHelper.cs" />
+    <Compile Include="Requests\AssemblyRequest.cs" />
+    <Compile Include="Models\PluginAssembly.cs" />
+    <Compile Include="Interfaces\IAssembly.cs" />
+    <Compile Include="Helpers\FilterHelper.cs" />
+    <Compile Include="Requests\FilterRequest.cs" />
+    <Compile Include="Helpers\ImageHelper.cs" />
+    <Compile Include="Interfaces\ImageRequest.cs" />
+    <Compile Include="Helpers\MessageHelper.cs" />
+    <Compile Include="Requests\MessageRequest.cs" />
+    <Compile Include="Interfaces\IPluginSetup.cs" />
+    <Compile Include="Helpers\PluginHelper.cs" />
+    <Compile Include="Requests\PluginRequest.cs" />
+    <Compile Include="Models\PluginType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\SdkMessage.cs" />
+    <Compile Include="Models\SdkMessageFilter.cs" />
+    <Compile Include="Registration.cs" />
+    <Compile Include="Interfaces\IStep.cs" />
+    <Compile Include="Models\SdkMessageProcessingStep.cs" />
+    <Compile Include="Models\SdkMessageProcessingStepImage.cs" />
+    <Compile Include="Helpers\StepHelper.cs" />
+    <Compile Include="Requests\StepRequest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Dynamics">
+      <Version>1.0.0-CI-20211001-062156</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Net.Http">
+      <Version>4.3.4</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
